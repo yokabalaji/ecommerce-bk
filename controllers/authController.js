@@ -9,7 +9,7 @@ exports.registerSuperadmin = async (req, res) => {
 
     const result = await pool.query(
       "INSERT INTO users (name,email,password,role,reference_no) VALUES ($1,$2,$3,$4,$5) RETURNING *",
-      [name, email, hash, "superadmin", "000"] // fixed reference number
+      [name, email, hash, "superadmin", "000"]
     );
     res.json(result.rows[0]);
   } catch (err) {
